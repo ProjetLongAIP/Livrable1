@@ -3,12 +3,12 @@
 > Command of a transport network and it simulation & Interaction of the transport network 
 
 ## Authors
-- __Jean Baptiste BLANC-ROUCHOSSE__ -- @gmail.com
-- __Claire DELAGE__ -- @gmail.com
-- __Enrique MALDONADO__ -- @gmail.com
-- __Maxime MAURIN__ -- @gmail.com
-- __Aurélie QUINTANA__ -- @gmail.com
-- __Celine TOME__ -- @gmail.com
+- __Jean Baptiste BLANC-ROUCHOSSE__ jbblancrouchosse@gmail.com
+- __Claire DELAGE__ clr.delage@gmail.com
+- __Enrique MALDONADO__ enriquemaldonado11@gmail.com
+- __Maxime MAURIN__ maxime-maurin@hotmail.fr
+- __Aurélie QUINTANA__ quintana.aurelie@gmail.com
+- __Celine TOME__ tome.cece@gmail.com
 
 ## Co-authors
 - __Bruno DATO__ -- bruno.dato.meneses@gmail.com
