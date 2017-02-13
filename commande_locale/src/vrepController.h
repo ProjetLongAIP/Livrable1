@@ -1,0 +1,58 @@
+/*
+ * ********************************* *
+ * Copyright 2016, STEC Projet Long. *
+ * All rights reserved.  	     *
+ * ********************************* *
+*/
+
+#ifndef VREP_CONTROLLER
+#define VREP_CONTROLLER
+
+#include <ros/ros.h>
+#include "vrep_common/simRosLoadModel.h"
+#include "vrep_common/simRosRemoveModel.h"
+#include "vrep_common/simRosGetObjectHandle.h"
+#include "vrep_common/simRosSetIntegerSignal.h"
+
+#include "vrep_common/simRosPauseSimulation.h"
+#include "vrep_common/simRosStartSimulation.h"
+class vrepController
+{
+	private:
+		ros::ServiceClient client_simRosLoadModelInit;
+		vrep_common::simRosLoadModel srv_LoadModelInit;
+
+		ros::ServiceClient client_simRosLoadModel;
+		vrep_common::simRosLoadModel srv_LoadModel;
+
+		ros::ServiceClient client_simRosRemoveModel;
+		vrep_common::simRosRemoveModel srv_RemoveModel;
+
+		ros::ServiceClient client_simRosGetObjectHandle; 
+		vrep_common::simRosGetObjectHandle srv_GetObjectHandle;
+
+		ros::ServiceClient client_simRosStartSimulation;
+		vrep_common::simRosStartSimulation srv_StartSimulation;	
+
+		ros::ServiceClient client_simRosPauseSimulation;
+		vrep_common::simRosPauseSimulation srv_PauseSimulation;
+
+		ros::ServiceClient client_simRosModelColor;
+		vrep_common::simRosSetIntegerSignal srv_ModelColor;
+		
+		int nShuttleF;
+	public:
+		vrepController ();
+		void init(ros::NodeHandle n);
+		void close();
+		void loadModelInit(char shuttleNumber);
+		//void loadModelRand(char shuttleNumber);
+		void removeModel(int32_t handle);
+		int32_t getObjectHandle(std::string);
+		void waitVrep();
+		void play();
+		void pause();
+		void shuttle(char);
+};
+
+#endif
