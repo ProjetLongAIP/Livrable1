@@ -78,7 +78,7 @@
      
 	- if ever the simulation doesn't lauch successfully stop it by doing CTRL+C try a second time "$ ./simulation 1 2 5 6" before restarting all the steps
  
- 11. **Click on the 'Play' button to start the simulation **
+11. **Click on the 'Play' button to start the simulation **
  
   - It is possible to insert shuttles with the 'Shuttle' button. 
   - Make sure you wait enough time between two shuttles. If you do not take this precaution shuttles will be accumulated in the starting point and eventually fall off the rails.
