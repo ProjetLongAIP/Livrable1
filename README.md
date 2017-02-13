@@ -10,6 +10,11 @@
 - __Aurélie QUINTANA__ -- @gmail.com
 - __Celine TOME__ -- @gmail.com
 
+## Co-authors
+- __Bruno DATO__ -- bruno.dato.meneses@gmail.com
+- __Abdellah ELGOURAIN__ -- elgourain@gmail.com
+- __Evgeny SHULGA__ -- hlebovod@mail.ru
+- Special thanks to them for their previous work in this project
 
 # TO DO
 
