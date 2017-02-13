@@ -1,4 +1,4 @@
-# Projet Long ENSEEIHT - GEA Department - 2017 
+# Projet Long ENSEEIHT - GEA Department - 2017 - projetlong.aip@gmail.com
 
 > Command of a transport network and it simulation & Interaction of the transport network 
 
