@@ -14,7 +14,7 @@
 - __Bruno DATO__ -- bruno.dato.meneses@gmail.com
 - __Abdellah ELGOURAIN__ -- elgourain@gmail.com
 - __Evgeny SHULGA__ -- hlebovod@mail.ru
-Special thanks to them for their previous work on this project
+	-Special thanks to them for their previous work on this project
 
 # TO DO
 
@@ -58,6 +58,7 @@ Special thanks to them for their previous work on this project
 
 8. **In ~/.../Working_Folder_1/ros_ws/ :**
 	- $ catkin_make
+	
   - A red line should appear which means that the executable have been created.
 	- repeat these steps for each of the packages that have an executable (communication, commande_locale and commande)
 	- It's recommended to add each package one by one, to do not copy all the package at once to avoid errors.
