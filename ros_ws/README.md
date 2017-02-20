@@ -1,1 +1,1 @@
-## ROS packages for the control and silulation of the TER
+## ROS packages for the control and simulation of the TER
