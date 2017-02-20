@@ -62,7 +62,7 @@ void vrepController::shuttle(char shuttleNumber)
 			shuttleNameComplete = "Shuttle"+std::string(&shuttleNumber,1);
 		}
 		else{
-			char aux = nShuttleF - 1 + '0';	
+			char aux = nShuttleF - 1 + '0';	 // transformation int -> char
 			ROS_INFO("-------- Aux : %c" ,aux);
 			shuttleNameComplete = "Shuttle"+std::string(&shuttleNumber,1)+"#"+ std::string(&aux,1);
 		}

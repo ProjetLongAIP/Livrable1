@@ -106,7 +106,6 @@ void inOutController::StateStopCallBack(const commande_locale::Msg_StopControl::
 	VREPGoController.publish(Go);
 }
 
-//void inOutController::SensorCallbackStation(const std_msgs::Int32::ConstPtr& msg)
 
 // Fonction Callback pour les actionneurs sur les ergots + capteurs des ergots
 void inOutController::StatePinCallBack(const commande_locale::Msg_PinControl::ConstPtr&  msg)
@@ -141,7 +140,6 @@ void inOutController::init(ros::NodeHandle nh)
 	// Subscribe
    	VREPsubRailSensor = nh.subscribe("vrep/RailSensor", 1, &inOutController::SensorCallbackRail, this);
 	VREPsubStopSensor = nh.subscribe("vrep/StopSensor", 1, &inOutController::SensorCallbackStop, this);
-    //VREPsubStationSensor = nh.subscribe("vrep/StationSensor", 1, &inOutController::SensorCallbackStation, this);
 	VREPsubSwitchSensor = nh.subscribe("vrep/SwitchSensor", 1, &inOutController::SensorCallbackSwitch, this);
 	planifSubSwitchState = nh.subscribe("/commande/Simulation/Actionneurs_aiguillages", 1, &inOutController::StateSwitchCallBack, this);
 	planifSubStopState = nh.subscribe("/commande/Simulation/Actionneurs_stops", 1, &inOutController::StateStopCallBack, this);

@@ -34,7 +34,6 @@ private:
 	ros::Subscriber subSensorState;
 	ros::Subscriber VREPsubRailSensor;
 	ros::Subscriber VREPsubStopSensor;
-	//ros::Subscriber VREPsubStationSensor;
 	ros::Subscriber VREPsubSwitchSensor;
 	ros::Subscriber planifSubSwitchState;
 	ros::Subscriber planifSubStopState;
@@ -51,7 +50,6 @@ public:
 	void SensorCallbackRail(const std_msgs::Int32::ConstPtr& msg);
 	void SensorCallbackStop(const std_msgs::Int32::ConstPtr& msg);
 	void SensorCallbackSwitch(const std_msgs::Int32::ConstPtr& msg);
-	//void SensorCallbackStation(const std_msgs::Int32::ConstPtr& msg);
 	// Actuators
 	void StateSwitchCallBack(const commande_locale::Msg_SwitchControl::ConstPtr&  msg);
 	void StateStopCallBack(const commande_locale::Msg_StopControl::ConstPtr&  msg);

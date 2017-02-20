@@ -46,7 +46,6 @@ class vrepController
 		void init(ros::NodeHandle n);
 		void close();
 		void loadModelInit(char shuttleNumber);
-		//void loadModelRand(char shuttleNumber);
 		void removeModel(int32_t handle);
 		int32_t getObjectHandle(std::string);
 		void waitVrep();
