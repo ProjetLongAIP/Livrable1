@@ -12,6 +12,8 @@
   <build_depend>sensor_msgs</build_depend>
   <build_depend>libopencv-dev</build_depend>
   <build_depend>vrep_common</build_depend>
+  <build_depend>robot</build_depend>
+  <build_depend>commande_locale</build_depend>
   <build_depend>image_transport</build_depend>
   <build_depend>message_generation</build_depend>
 

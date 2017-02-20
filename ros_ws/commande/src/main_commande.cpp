@@ -5,7 +5,7 @@
  * ************************************* *
 */
 
-
+#include "robots.h"
 #include "capteurs.h" 
 #include "actionneurs.h" 
 #include "commande.h"
@@ -26,15 +26,17 @@ int main(int argc, char **argv)
 	ros::init(argc, argv, "commande");	
 	ros::NodeHandle noeud;
 
-//création et initialisation des objets Capteur et Actionneurs
+//création et initialisation des objets Robots, Capteurs et Actionneurs
+	
+	Robots Robots(noeud);
 
 	Capteurs Capteurs(noeud); 
 
 	Actionneurs Actionneurs(noeud);
 
+
 	ros::Rate loop_rate(25); //fréquence de la boucle 
-
-
+	
 // Déclaration des variables pour la MEF ou le RdP //
 
 	/* Tableau marquage */
@@ -78,8 +80,12 @@ int main(int argc, char **argv)
 	
 			
 	int Deplacement_effectue=0;
-	
-	
+	int comptrobot1, comptrobot2, comptrobot3,comptrobot4;
+	comptrobot1=1;
+	comptrobot2=1;
+	comptrobot3=1;
+	comptrobot4=1;
+
 //////////////////////////////////////////////
 //////////////////////////////////////////////
 //////////////////////////////////////////////
@@ -88,7 +94,68 @@ int main(int argc, char **argv)
 
 	while (ros::ok())
 	{
+		usleep(3000000);
+		ros::spinOnce();
+		if(Robots.RobotInitialise(2)==1)
+		{	
+			comptrobot1++;
+			if(comptrobot1 == 2)
+			{
+				Robots.EnvoyerPosition(2,3);
+			}
+			ros::spinOnce();
+			if(Robots.RobotEnPosition(2)==1)
+			{	
+				Robots.FermerPince(2);
+				usleep(3000000);
+			}			
+		}
+		if(Robots.RobotInitialise(3)==1)
+		{	
+			comptrobot2++;
+			if(comptrobot2 == 2)
+			{
+				Robots.EnvoyerPosition(3,2);
+			}
+			ros::spinOnce();
+			if(Robots.RobotEnPosition(3)==1)
+			{	
+				Robots.DescendreBras(3);
+				usleep(3000000);
+			}			
+		}
+		if(Robots.RobotInitialise(1)==1)
+		{	
+			comptrobot3++;
+			if(comptrobot3 == 2)
+			{
+				Robots.EnvoyerPosition(1,4);
+			}
+			ros::spinOnce();
+			if(Robots.RobotEnPosition(1)==1)
+			{	
+				Robots.FermerPince(1);
+				usleep(3000000);
+			}			
+		}
+		if(Robots.RobotInitialise(4)==1)
+		{	
+			comptrobot4++;
+			if(comptrobot4 == 2)
+			{
+				Robots.EnvoyerPosition(4,1);
+			}
+			ros::spinOnce();
+			if(Robots.RobotEnPosition(4)==1)
+			{	
+				Robots.DescendreBras(4);
+				usleep(3000000);
+			}			
+		}
 		
+		
+
+
 		cout <<"~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
 		if (Capteurs.SIMULATION) cout <<"~      SIMULATION "<< BOLDGREEN <<"ON"<< RESET <<"    ~"<<endl; 
 		else cout <<"~    SIMULATION "<< BOLDRED <<"OFF"<< RESET <<"     ~"<<endl;
