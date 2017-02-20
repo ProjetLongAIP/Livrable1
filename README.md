@@ -14,7 +14,8 @@
 - __Bruno DATO__ -- bruno.dato.meneses@gmail.com
 - __Abdellah ELGOURAIN__ -- elgourain@gmail.com
 - __Evgeny SHULGA__ -- hlebovod@mail.ru
-	-Special thanks to them for their previous work on this project
+
+Special thanks to them for their previous work on this project
 
 # TO DO
 
@@ -26,65 +27,93 @@
 
 2. **Open a terminal and write**
 
-	- $ sudo apt-get install libmodbus-dev 
+	`
+	$ sudo apt-get install libmodbus-dev
+	`
 
 
 ## Create the workspace
 
 
-3. **In ~/.../ Create a folder named for example "Working_Folder_1", it will contain your workspace**
-	- In this folder, copy the folders *img* and *V-REP* and the file *Simulation.ttt* (you can find them in this GitHub repertory ). Every time you find "/.../" you have to replace this by the path that leads to the folder or the file we are talking about on YOUR computer)
+3. **Download the content of this GitHub repertory and place it in folder for example 'TER_files'**
 
-
-4. **In ~/.bashrc, add these lines :**
-	- source /opt/ros/*ROS_version*/setup.bash (source /opt/ros/jade/setup.bash for example if your installed ROS JADE)
-	- export VREP_ROOT_DIR=~/ ... /Working_Folder_1/V-Rep/
-
-5. **Create the workspace ros_ws : in ~/.../Working_Folder_1 :**
-	- $ mkdir -p ros_ws/src
-	- $ cd ros_ws/src
-	- $ catkin_init_workspace
-	- $ cd ..
-	- $ catkin_make
-
-6. **In ~/.bashrc, add this line :**
-	- source ~/ ... /Working_Folder_1/ros_ws/devel/setup.bash (this line will avoid you to always write source devel/setup.bash every time you open a new terminal)
-	- if you are using another ros workspace in parallel, don't add this line in ~/.bashrc, you will have to write the command "source devel/setup.bash" every time that you open a new terminal and that you are in /ros_ws
-
-## Add the packages
-
-7. **in ~/.../Working_Folder_1/ros_ws/src**
-	- copy the package *automates* of ~/.../ros_ws/src (which is the folder *automates*)
-
-8. **In ~/.../Working_Folder_1/ros_ws/ :**
-	- $ catkin_make
+4. **Chose a name for your workspace. For this example will call this folder 'Working_Folder_TER'**
+	- This folder will be in the 'home' repertory of Linux and it will contain all the files to execute the simulation properly
 	
-  - A red line should appear which means that the executable have been created.
-	- repeat these steps for each of the packages that have an executable (communication, commande_locale and commande)
-	- It's recommended to add each package one by one, to do not copy all the package at once to avoid errors.
+5. **In ~/.bashrc, add these lines :**
+	- Open a terminal and write the command gedit .bashrc
+	- At the end of the file add the following line replacing *ROS_version* by the ROS version you installed (e.g. indigo) and [Working_Folder] with the name of your workspace (e.g. Working_Folder_TER). See the example below
+	
+	```
+	source /opt/ros/*ROS_version*/setup.bash
+	export VREP_ROOT_DIR=~/[Working_Folder]/V-Rep/
+	Example:
+	source /opt/ros/indigo/setup.bash
+	export VREP_ROOT_DIR=~/Working_Folder_TER/V-Rep/
+	```
+	
+6. **In ~/.bashrc, add these lines :**
+	- Also add the following lines by replacing [Working_Folder] with the name of your workspace. See the example below.
+	- This line will avoid you to always write source devel/setup.bash every time you open a new terminal.
+	- If you are using another ros workspace in parallel, don't add this line in ~/.bashrc, you will have to write the command "source devel/setup.bash" every time that you open a new terminal and that you are in [Working_Folder]/ros_ws
+	
+	
+	```
+	source ~/[Working_Folder]/ros_ws/devel/setup.bash
+	Example:
+	source ~/Working_Folder_TER/ros_ws/devel/setup.bash
+	```
+	
+7. **Open a terminal and place you in the folder 'TER_files', where you placed the content of the GitHub**
+        - Remember you can change the directory with the commande cd. 
+	- Once you are in the indicated folder run the following command by replacing [Working_Folder] with the name of your workspace. See the example below. 
+	
+	```
+	./setup [Working_Folder]
+	Example:
+	./setup Working_Folder_TER
+	```
+	
+8. **'setup' will create and organize your workinspace**
+	- At the end of 'setup' execution you should get the following message
 
-	- if you encounter errors like : no such file or directory #include "automates/Entrees.h" , go to ~/.../Working_Folder_1/ros_ws/devel/include/automates (for this file), copy Entrees.h and paste it in the folder "src" of the package that is causing problem
-	- then in every programme of the package, every time you find #include "automates/Entrees.h" replace it by #include "Entrees.h"
-
- 	- if you have another of this errors, you can find all the files.h that you need in ~/.../Working_Folder_Montrac/ros_ws/devel/include/
-
-
+	````
+	-----------------------------------------------------------
+	      Final catkin_make done in 'Working_Folder_TER
+	          The simuation is ready to be launched
+	 ----------------------------------------------------------
+	```
+	
 ## Run the simulation 
 
 9.  **In a terminal, write the command "roscore" if you haven't done it yet to launch the local master**
 
-10. **If you are using the real transport network, ignore this step. To run the simulation, in a new terminal, in ~/ ... /Working_Folder_1**
+10. **If you are using the real transport network, ignore this step. To run the simulation, open a new terminal and place you in  ~/[Working_Folder]**
 
-	- You could do either: 
-     $ ./simulation 1 2 5 6 (or any number of shuttle between 1 and 6 seperated with a space)
-     If you wish to have initial shuttles on the rails.
-     
-     $ ./simulation 
-     If you wish an empty initial cell. You will be able to insert shuttles with the 'Shuttle' button.
-     
-	- if ever the simulation doesn't lauch successfully stop it by doing CTRL+C try a second time "$ ./simulation 1 2 5 6" before restarting all the steps
+	- You could do either begin with an empty cell and insert shuttles with the 'Shuttle' button:
+	```
+	$ ./simulation
+	```
+	- Or initialize the simulation with shuttles on the rails:
+	```
+	$ ./simulation 1 2 5 6 (or any number of shuttle between 1 and 6 seperated with a space)
+	```
+	- If ever the simulation doesn't lauch successfully stop it by doing CTRL+C and try a second time the previous commands before restarting all the steps.
+	
  
 11. **Click on the 'Play' button to start the simulation**
- 
   - It is possible to insert shuttles with the 'Shuttle' button. 
   - Make sure you wait enough time between two shuttles. If you do not take this precaution shuttles will be accumulated in the starting point and eventually fall off the rails.
+  - If you wish to launch the command node, you'll have to open a new terminal and write the following command:
+
+	```
+	$ rosrun commande run
+	```
+
+  - If you want to launch the robot node, you'll have to open a new terminal and write the following command:
+
+	```
+	$ roslaunch robot robot.launch
+	```
+
+
