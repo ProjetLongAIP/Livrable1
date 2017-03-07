@@ -81,6 +81,7 @@ Special thanks to them for their previous work on this project
 	-----------------------------------------------------------
 	      Final catkin_make done in 'Working_Folder_TER
 	          The simuation is ready to be launched
+		  (...)
 	 ----------------------------------------------------------
 	```
 	
@@ -90,30 +91,27 @@ Special thanks to them for their previous work on this project
 
 10. **If you are using the real transport network, ignore this step. To run the simulation, open a new terminal and place you in  ~/[Working_Folder]**
 
-	- You could do either begin with an empty cell and insert shuttles with the 'Shuttle' button:
+	- Type the following command to launch the simulation. It will launch the default simulation file (Simulation.ttt in the ~/[Working_Folder]/sim/) :
 	```
-	$ ./simulation
+	$ ./launch.sh
 	```
-	- Or initialize the simulation with shuttles on the rails:
+	- If you want to launch a specific simulation file, type:
 	```
-	$ ./simulation 1 2 5 6 (or any number of shuttle between 1 and 6 seperated with a space)
+	$ ./launch.sh [Simulation_File]
 	```
-	- If ever the simulation doesn't lauch successfully stop it by doing CTRL+C and try a second time the previous commands before restarting all the steps.
+	- If ever the simulation doesn't lauch successfully read this list of possible errors:
+		- The image of the simulation does not appear: Make sure you put the correct name of the simulation file.
+		- Nothing works at all: Make sure the ROS master has been launched.
+	- If any of the previous instructions solved the problem, stop the simulation by typing CTRL+C and try a second time the previous commands before restarting all the steps.
 	
  
 11. **Click on the 'Play' button to start the simulation**
-  - It is possible to insert shuttles with the 'Shuttle' button. 
-  - Make sure you wait enough time between two shuttles. If you do not take this precaution shuttles will be accumulated in the starting point and eventually fall off the rails.
-  - If you wish to launch the command node, you'll have to open a new terminal and write the following command:
+	- The initial mode of the simulation is standby. You will have to choose a mode (Mode button) to be able to start.
+  	- It is possible to insert shuttles with the 'Shuttle' button, if you are in 'Manual' or 'Random' mode. 
+  	- Make sure you wait enough time between two shuttles. If you do not take this precaution shuttles will be accumulated in the starting point and eventually fall off the rails.
+  
+  	- If you wish to launch the auto mode, you will have to correctly configure the ProductConfiguration.config file (in ~/[Working_Folder]/).Follow the instructions in the heading of the file to know how to modify it:
 
-	```
-	$ rosrun commande run
-	```
 
-  - If you want to launch the robot node, you'll have to open a new terminal and write the following command:
-
-	```
-	$ roslaunch robot robot.launch
-	```
 
 
