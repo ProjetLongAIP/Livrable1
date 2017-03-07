@@ -110,7 +110,7 @@ Special thanks to them for their previous work on this project
   	- It is possible to insert shuttles with the 'Shuttle' button, if you are in 'Manual' or 'Random' mode. 
   	- Make sure you wait enough time between two shuttles. If you do not take this precaution shuttles will be accumulated in the starting point and eventually fall off the rails.
   
-  	- If you wish to launch the auto mode, you will have to correctly configure the ProductConfiguration.config file (in ~/[Working_Folder]/).Follow the instructions in the heading of the file to know how to modify it:
+  	- If you wish to launch the auto mode, you will have to correctly configure the ProductConfiguration.config file (in ~/[Working_Folder]/). Follow the instructions in the heading of the file to know how to modify it:
 
 
 
